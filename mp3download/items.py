@@ -11,4 +11,6 @@ import scrapy
 class Mp3DownloadItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    album = scrapy.Field()
+    url = scrapy.Field()
+    

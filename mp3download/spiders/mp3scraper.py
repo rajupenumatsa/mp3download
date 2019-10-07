@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
+from scrapy.loader import ItemLoader
+from mp3download.items import Mp3DownloadItem
 
 
 class Mp3scraperSpider(scrapy.Spider):
@@ -12,7 +14,9 @@ class Mp3scraperSpider(scrapy.Spider):
             yield response.follow(href, self.parse_album)
     
     def parse_album(self, response):
-        yield{
-            'album' : response.css('.breadcrumb_last::text').get(default = 'null').strip(),
-            'link' : response.css('blockquote a::attr(href)').get(default = 'null').strip(),
-        }
+        l = ItemLoader(item = Mp3DownloadItem(),response= response)
+        l.add_css('album','.breadcrumb_last::text' )
+        l.add_css('url', 'blockquote a::attr(href)')
+        return l.load_item()
+
+        
