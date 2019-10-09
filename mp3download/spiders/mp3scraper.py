@@ -6,7 +6,7 @@ from mp3download.items import Mp3DownloadItem
 
 class Mp3scraperSpider(scrapy.Spider):
     name = 'mp3scraper'
-    allowed_domains = ['naasongs.com']
+    #allowed_domains = ['naasongs.com']
     start_urls = ['https://naasongs.com/telugu-songs-b/']
 
     def parse(self, response):
@@ -15,8 +15,8 @@ class Mp3scraperSpider(scrapy.Spider):
     
     def parse_album(self, response):
         l = ItemLoader(item = Mp3DownloadItem(),response= response)
-        l.add_css('album','.breadcrumb_last::text' )
-        l.add_css('url', 'blockquote a::attr(href)')
+        #l.add_css('album','.breadcrumb_last::text' )
+        l.add_css('file_urls', 'blockquote a::attr(href)')
         return l.load_item()
 
         
