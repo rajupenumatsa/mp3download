@@ -4,8 +4,19 @@
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+import zipfile
+from scrapy.pipelines.files import FilesPipeline
+from scrapy.utils.project import get_project_settings
 
+class Mp3DownloadPipeline(FilesPipeline):
+    def item_completed(self, results, item, info):
+        settings = get_project_settings()
+        base_path = settings.get('FILES_STORE')
+        rel_path = [x['path'] for ok, x in results if ok]
+        abs_path = base_path+'/'+rel_path[0]
+        
+        if rel_path:
+            with zipfile.ZipFile(abs_path, 'r') as zip_ref:
+                zip_ref.extractall(base_path)
 
-class Mp3DownloadPipeline(object):
-    def process_item(self, item, spider):
-        return item
+        return super().item_completed(results, item, info)

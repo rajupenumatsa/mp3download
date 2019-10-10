@@ -65,11 +65,12 @@ COOKIES_ENABLED = False
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'scrapy.pipelines.files.FilesPipeline': 1,
+    #'scrapy.pipelines.files.FilesPipeline': 1,
+    'mp3download.pipelines.Mp3DownloadPipeline' : 1
 }
-FILES_STORE = '/home/raju/music'
+FILES_STORE = '/home/raju/Music'
 MEDIA_ALLOW_REDIRECTS = True
-DOWNLOAD_TIMEOUT = 1200
+DOWNLOAD_TIMEOUT = 180
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
