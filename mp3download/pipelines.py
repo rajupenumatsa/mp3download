@@ -13,9 +13,10 @@ class Mp3DownloadPipeline(FilesPipeline):
         settings = get_project_settings()
         base_path = settings.get('FILES_STORE')
         rel_path = [x['path'] for ok, x in results if ok]
-        abs_path = base_path+'/'+rel_path[0]
         
+        # Extract zip file only if album is available
         if rel_path:
+            abs_path = base_path+'/'+rel_path[0]
             with zipfile.ZipFile(abs_path, 'r') as zip_ref:
                 zip_ref.extractall(base_path)
 
