@@ -25,7 +25,7 @@ It is recommended to deploy it using Scrapyd as we can schedule it as job and ru
 - Create a cron job(Linux) and schedule it to run this job as needed.
 
 # Configuration
-Update the FILES_STORE value to the desired path to store downloaded files to local drive. You can find it at <<project-root-dir>>/mp3download/settings.py
+Update the FILES_STORE value to the desired path to store downloaded files to local drive. You can find it at project-root-dir/mp3download/settings.py
 
 # Further extensions planned
 - Capture additional meta data of album.
