@@ -12,7 +12,7 @@ We can either run it individually using scrapy crawl commands or we can deploy i
 Local environment:
 - Clone it from Git 
 - Navigate to the project root directory in terminal
-- Change FILES_STORE value in settings.py file available in <<project-root-dir>>/mp3download/settings.py to your desired local drive path where you would like to scrape all the albums.
+- Change FILES_STORE value in settings.py file available in project-root-dir/mp3download/settings.py to your desired local drive path where you would like to scrape all the albums.
 - Run command 'scrapy crawl mp3scrapper'
 - You will see nice log in console with the necessary details and stats. You can verify the files downloaded in the FILES_STORE path that you configured.
 
