@@ -18,10 +18,10 @@ Local environment:
 
 It is recommended to deploy it using Scrapyd as we can schedule it as job and run it as needed. It also supports monitoring it through web interface.
 - Install scrapyd and scarpyd-client using pip. Make sure to install same server and client versions.
-- Start scrapyd as daemon
+- Start scrapyd as daemon(Run command: scrapyd)
 - Navigate to project root folder in terminal and deploy the project egg using scapyd-deploy tool.
-- Schedule a job to run the mp3scraper to see the results.
-- Monitor the job status and log files using scrapyd web interface runs at 6800 port(default).
+- Schedule a job to run the mp3scraper to see the results.(Run command: scrapyd-client schedule -p mp3download mp3scraper)
+- Monitor the job status and log files using scrapyd web interface runs at 6800 port(http://localhost:6800/jobs).
 - Create a cron job(Linux) and schedule it to run this job as needed.
 
 # Configuration
